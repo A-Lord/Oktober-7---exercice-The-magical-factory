@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Oktober_7___exercice_The_magical_factory</RootNamespace>
+  </PropertyGroup>
+
+</Project>
