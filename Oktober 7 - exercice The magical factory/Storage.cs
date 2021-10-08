@@ -141,7 +141,7 @@ namespace Oktober_7___exercice_The_magical_factory
                 listOfMaterials.Add(Material.RedPaint);
                 NumOfRedPaint--;
             }
-            if( NumOfScrew > 0)
+            if (NumOfScrew > 0)
             {
                 listOfMaterials.Add(Material.Screw);
                 NumOfScrew--;
@@ -185,24 +185,39 @@ namespace Oktober_7___exercice_The_magical_factory
                 switch (pickMaterial)
                 {
                     case "Wood":
-                        MaterialsToSendToFabric.Add(Material.Wood);
-                        RemoveWoodFromStorage();
+                        if (listOfMaterials.Contains(Material.Wood))
+                        {
+                            MaterialsToSendToFabric.Add(Material.Wood);
+                            RemoveWoodFromStorage();
+                        }
                         break;
                     case "Steel":
-                        MaterialsToSendToFabric.Add(Material.Steel);
-                        RemoveSteelFromStorage();
+                        if (listOfMaterials.Contains(Material.Steel))
+                        {
+                            MaterialsToSendToFabric.Add(Material.Steel);
+                            RemoveSteelFromStorage();
+                        }
                         break;
                     case "Screw":
-                        MaterialsToSendToFabric.Add(Material.Screw);
-                        RemoveScrewFromStorage();
+                        if (listOfMaterials.Contains(Material.Screw))
+                        {
+                            MaterialsToSendToFabric.Add(Material.Screw);
+                            RemoveScrewFromStorage();
+                        }
                         break;
                     case "RedPaint":
-                        MaterialsToSendToFabric.Add(Material.RedPaint);
-                        RemoveRedPaintFromStorage();
+                        if (listOfMaterials.Contains(Material.RedPaint))
+                        {
+                            MaterialsToSendToFabric.Add(Material.RedPaint);
+                            RemoveRedPaintFromStorage();
+                        }
                         break;
                     case "Plastic":
-                        MaterialsToSendToFabric.Add(Material.Plastic);
-                        RemovePlasticFromStorage();
+                        if (listOfMaterials.Contains(Material.Plastic))
+                        {
+                            MaterialsToSendToFabric.Add(Material.Plastic);
+                            RemovePlasticFromStorage();
+                        }
                         break;
                     case "Done":
                         ConvertMaterialsToInt();
@@ -221,7 +236,7 @@ namespace Oktober_7___exercice_The_magical_factory
                 {
                     Console.WriteLine("A Telephone needs: 1 Steel, 1 Wood, 3 Screw - This will be prio 2");
                 }
-                 static void BlueprintBicycle()
+                static void BlueprintBicycle()
                 {
                     Console.WriteLine("A Bicycle needs: 3 Plastic, 1 Wood, 1 Screw - This will be prio 3");
                 }
