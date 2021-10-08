@@ -8,6 +8,6 @@ namespace Oktober_7___exercice_The_magical_factory
 {
     public enum Blueprints
     {
-        Bicycle, WoodenHorse, Telephone
+        Bicycle, WoodenHorse, Telephone, hej
     }
 }
