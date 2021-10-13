@@ -23,10 +23,10 @@ namespace Oktober_7___exercice_The_magical_factory
                 Console.WriteLine("Welcome to the Macical Factory!\n");
 
                 myStorage.ShowLager();
-                myFabric.ShowBlueprints();
+                //myFabric.ShowBlueprints();
                 myStorage.MaterialsFromStorageToFactory();
 
-                myFabric.ShowBlueprints();
+                //myFabric.ShowBlueprints();
 
                 
                 myStorage.ConvertMaterialsToInt();
