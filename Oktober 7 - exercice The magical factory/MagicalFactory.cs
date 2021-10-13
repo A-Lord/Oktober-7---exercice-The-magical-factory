@@ -14,32 +14,16 @@ namespace Oktober_7___exercice_The_magical_factory
         {
 
         }
-        public void Run()
+        public void Run()  //starts the game
         {
-            Recipes.CreateRecipes();
+            Recipes.CreateRecipes(); //creats the items that u can craft
             while (true)
             {
-
-
                 Console.WriteLine("Welcome to the Macical Factory!\n");
-
                 myStorage.ShowLager();
-                //myFabric.ShowBlueprints();
                 myFabric.MaterialFromUser(myStorage.MaterialsFromStorageToFactory());  //Starting materialsfromStorage that will return a int list with the materials 
                                                                                        //the user wants to try and make items from,. we send it to materials from user funktion.
                                                                                        //myFabric.ShowBlueprints();
-                
-
-
-                //myStorage.ConvertMaterialsToInt();
-                //myFabric.TryWoodenHorse(myStorage);
-                //myFabric.TryTelephone(myStorage);
-                //myFabric.TryBicycle(myStorage);
-                //myStorage.ConvertUnusedIntsBackToMaterials();
-
-                //myStorage.ShowLager();
-
-
 
             }
         }   

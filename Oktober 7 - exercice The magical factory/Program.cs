@@ -11,9 +11,5 @@ namespace Oktober_7___exercice_The_magical_factory
             factory.Run();
         }
 
-
-
-            
-
     }
 }

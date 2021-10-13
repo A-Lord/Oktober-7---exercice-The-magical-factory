@@ -6,7 +6,7 @@ namespace Oktober_7___exercice_The_magical_factory
     public class Fabric
     {
         private int _woodInFactory;
-        private int _ironInFactory;
+        private int _ironInFactory;           //can probebly make this to a list or array.
         private int _rubberInFactory;
         private int _redPaintInFactory;
         private int _screwsInFactory;
@@ -14,33 +14,17 @@ namespace Oktober_7___exercice_The_magical_factory
 
         public Fabric()
         {
-            //Adds enum blueprints to list of blueprints
-
-
         }
         public void MaterialFromUser(List<int> inputMaterials)
         {
             _woodInFactory = inputMaterials[0];
-            _ironInFactory = inputMaterials[1];
+            _ironInFactory = inputMaterials[1];     
             _rubberInFactory = inputMaterials[2];
             _redPaintInFactory = inputMaterials[3];
             _screwsInFactory = inputMaterials[4];
             CheckMaterialAgainstRecepies();
         }
 
-        //Lists all the blueprints avalible through the enum "BluePrints!"
-        //public void ShowBlueprints()
-        //{
-        //    Console.WriteLine("\nIt's posible to create: \n");
-        //    for (int i = 0; i < blueprints.Count; i++)
-        //    {
-        //        Console.WriteLine($" - {blueprints[i]}");
-        //    }
-
-        //}
-
-        //Tries to create Wooden Horse and send it back to storage
-        //removed to change them to something else then functions.
         private void CheckMaterialAgainstRecepies()
         {
             int topTotalMaterial = 0;
@@ -80,15 +64,14 @@ namespace Oktober_7___exercice_The_magical_factory
             for (int i = 0; i < 10; i++)
             {
                 Console.Write(dotdotdot);
-                if (i % 4 == 0) { Console.Write("\b\b\b   \b\b\b"); }
+                if (i % 4 == 0) { Console.Write("\b\b\b   \b\b\b"); }  //Haralds awesome animation for when the items are crafted.
                 Thread.Sleep(timeRando.Next(50, 400));
             }
             Console.WriteLine();
 
             Console.WriteLine("Construction of {0} is starting ...", recipe.Name);
-            Thread.Sleep(timeRando.Next(50, 400));
-            Storage._playerItems.Add(recipe);
-            //Console.WriteLine("itemlist count: {0}", Inventory.PlayerItems.Count);
+            Thread.Sleep(timeRando.Next(50, 400));              //pauses the game for random time to simulate the items beeing crafted.
+            Storage._playerItems.Add(recipe);                   //curently using a static property in storage so we can change it from here.,. will be changed so we can have many difrent players.
             Console.WriteLine("Success!");
             Console.WriteLine("The {0} was added to your inventory.", recipe.Name);
             Thread.Sleep(700);
@@ -101,9 +84,9 @@ namespace Oktober_7___exercice_The_magical_factory
             _screwsInFactory -= recipe.ScrewNeeded;
             CheckMaterialAgainstRecepies(); // kör 
 
-            //Inventory.UpdateAndCleanUpInventory(_woodInFactory, _ironInFactory, _rubberInFactory);
+
             Console.WriteLine("Your remaining material has been returned.");
-            Storage._listOfMaterialsAmount[0] += _woodInFactory;
+            Storage._listOfMaterialsAmount[0] += _woodInFactory;           // static property in storage , might look beter with an other way to change that list in storage.
             Storage._listOfMaterialsAmount[1] += _ironInFactory;
             Storage._listOfMaterialsAmount[2] += _rubberInFactory;
             Storage._listOfMaterialsAmount[3] += _screwsInFactory;
@@ -111,10 +94,9 @@ namespace Oktober_7___exercice_The_magical_factory
             _woodInFactory = 0;
             _ironInFactory = 0;
             _rubberInFactory = 0;
-            _screwsInFactory = 0;
+            _screwsInFactory = 0;   // resets the item inside the fabric objekt
             _redPaintInFactory = 0;
-            //Wood, Steel, Plastic, RedPaint, Screw
-            //Console.WriteLine("trä: {0} järn: {1} gummi: {2}", _woodInFactory, _ironInFactory, _rubberInFactory);
+
 
         }
 
