@@ -19,7 +19,7 @@ namespace Oktober_7___exercice_The_magical_factory
 
         }
         
-        //Lists all the blueprints avalible through the enum "BluePrints"
+        //Lists all the blueprints avalible through the enum "BluePrints!"
         public void ShowBlueprints()
         {
             Console.WriteLine("\nIt's posible to create: \n");
