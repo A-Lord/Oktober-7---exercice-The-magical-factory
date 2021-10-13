@@ -15,45 +15,29 @@ namespace Oktober_7___exercice_The_magical_factory
 
         public List<Material> listOfMaterials = new List<Material>();
         public List<Blueprints> ListOfCreatedItems = new List<Blueprints>();
+        public List<int> _listOfMaterialsAmount = new List<int>();
+        public List<Material> _materialsToFactory = new List<Material>();
 
         //Constructor that creats necessary lists and items to storage
         public Storage()
         {
 
-            List<Material> listOfMaterials = new List<Material>();
-            List<Blueprints> ListOfCreatedItems = new List<Blueprints>();
-            AddList();
+            listOfMaterials = new List<Material>();
+            ListOfCreatedItems = new List<Blueprints>();
+            _listOfMaterialsAmount = new List<int>();  
+           AddList();
 
         }
 
         //Intital materials
         public void AddList()
         {
-            listOfMaterials.Add(Material.Wood);
-            listOfMaterials.Add(Material.Wood);
-            listOfMaterials.Add(Material.Wood);
-            listOfMaterials.Add(Material.Wood);
-            listOfMaterials.Add(Material.Wood);
-            listOfMaterials.Add(Material.Steel);
-            listOfMaterials.Add(Material.Steel);
-            listOfMaterials.Add(Material.Steel);
-            listOfMaterials.Add(Material.Steel);
-            listOfMaterials.Add(Material.Steel);
-            listOfMaterials.Add(Material.RedPaint);
-            listOfMaterials.Add(Material.RedPaint);
-            listOfMaterials.Add(Material.RedPaint);
-            listOfMaterials.Add(Material.RedPaint);
-            listOfMaterials.Add(Material.Screw);
-            listOfMaterials.Add(Material.Screw);
-            listOfMaterials.Add(Material.Screw);
-            listOfMaterials.Add(Material.Screw);
-            listOfMaterials.Add(Material.Plastic);
-            listOfMaterials.Add(Material.Plastic);
-            listOfMaterials.Add(Material.Plastic);
-            listOfMaterials.Add(Material.Plastic);
-            listOfMaterials.Add(Material.Plastic);
-            listOfMaterials.Add(Material.Plastic);
-
+            for (int i = 0; i < Enum.GetNames(typeof(Material)).Length; i++)
+            {
+                int randomNumber = new Random().Next(0, 10);
+                _listOfMaterialsAmount.Add(randomNumber);
+                listOfMaterials.Add((Material)i);
+            }
         }
 
 
@@ -64,7 +48,7 @@ namespace Oktober_7___exercice_The_magical_factory
             Console.WriteLine("The storage contains the folowing materials:  ");
             for (int i = 0; i < listOfMaterials.Count; i++)
             {
-                Console.WriteLine($" - {listOfMaterials[i]}");
+                Console.WriteLine($" {i+1} - {listOfMaterials[i],10} -Amount: {_listOfMaterialsAmount[i]}");
             }
             Console.WriteLine("You own the folowing products:  ");
             for (int i = 0; i < ListOfCreatedItems.Count; i++)
@@ -168,7 +152,7 @@ namespace Oktober_7___exercice_The_magical_factory
         {
             Console.WriteLine("");
             bool isDone = false;
-            string pickMaterial;
+            // string pickMaterial;
             MaterialsToSendToFabric = new List<Material>();
             while (isDone == false)
             {
@@ -183,54 +167,67 @@ namespace Oktober_7___exercice_The_magical_factory
                 BlueprintBicycle();
                 BlueprintTelephone();
 
-
-                pickMaterial = (Console.ReadLine());
-
-                switch (pickMaterial)
+                int inputKey = (int.Parse((Convert.ToString(Console.ReadKey(true).KeyChar)))-1);
+                //pickMaterial = (Console.ReadLine());
+                if (_listOfMaterialsAmount[inputKey] > 0)
                 {
-                    case "Wood":
-                        if (listOfMaterials.Contains(Material.Wood))
-                        {
-                            MaterialsToSendToFabric.Add(Material.Wood);
-                            RemoveWoodFromStorage();
-                        }
-                        break;
-                    case "Steel":
-                        if (listOfMaterials.Contains(Material.Steel))
-                        {
-                            MaterialsToSendToFabric.Add(Material.Steel);
-                            RemoveSteelFromStorage();
-                        }
-                        break;
-                    case "Screw":
-                        if (listOfMaterials.Contains(Material.Screw))
-                        {
-                            MaterialsToSendToFabric.Add(Material.Screw);
-                            RemoveScrewFromStorage();
-                        }
-                        break;
-                    case "RedPaint":
-                        if (listOfMaterials.Contains(Material.RedPaint))
-                        {
-                            MaterialsToSendToFabric.Add(Material.RedPaint);
-                            RemoveRedPaintFromStorage();
-                        }
-                        break;
-                    case "Plastic":
-                        if (listOfMaterials.Contains(Material.Plastic))
-                        {
-                            MaterialsToSendToFabric.Add(Material.Plastic);
-                            RemovePlasticFromStorage();
-                        }
-                        break;
-                    case "Done":
-                        ConvertMaterialsToInt();
-                        isDone = true;
-                        break;
-                    default:
-                        Console.WriteLine("You didn't enter a valid material!");
-                        break;
+                    _listOfMaterialsAmount[inputKey] = _listOfMaterialsAmount[inputKey] - 1;
+                        MaterialsToSendToFabric.Add((Material)inputKey);
                 }
+                else
+                {
+                    Console.WriteLine($"{(Material)inputKey} is out of stock. Press enter to continue.");
+                    Console.ReadKey();
+                }
+
+
+
+
+                //switch (pickMaterial)
+                //{
+                //    case "Wood":
+                //        if (listOfMaterials.Contains(Material.Wood))
+                //        {
+                //            MaterialsToSendToFabric.Add(Material.Wood);
+                //            RemoveWoodFromStorage();
+                //        }
+                //        break;
+                //    case "Steel":
+                //        if (listOfMaterials.Contains(Material.Steel))
+                //        {
+                //            MaterialsToSendToFabric.Add(Material.Steel);
+                //            RemoveSteelFromStorage();
+                //        }
+                //        break;
+                //    case "Screw":
+                //        if (listOfMaterials.Contains(Material.Screw))
+                //        {
+                //            MaterialsToSendToFabric.Add(Material.Screw);
+                //            RemoveScrewFromStorage();
+                //        }
+                //        break;
+                //    case "RedPaint":
+                //        if (listOfMaterials.Contains(Material.RedPaint))
+                //        {
+                //            MaterialsToSendToFabric.Add(Material.RedPaint);
+                //            RemoveRedPaintFromStorage();
+                //        }
+                //        break;
+                //    case "Plastic":
+                //        if (listOfMaterials.Contains(Material.Plastic))
+                //        {
+                //            MaterialsToSendToFabric.Add(Material.Plastic);
+                //            RemovePlasticFromStorage();
+                //        }
+                //        break;
+                //    case "Done":
+                //        ConvertMaterialsToInt();
+                //        isDone = true;
+                //        break;
+                //    default:
+                //        Console.WriteLine("You didn't enter a valid material!");
+                //        break;
+                //}
 
                 static void BlueprintHorse()
                 {
