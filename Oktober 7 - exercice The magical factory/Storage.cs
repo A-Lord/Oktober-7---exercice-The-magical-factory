@@ -15,9 +15,10 @@ namespace Oktober_7___exercice_The_magical_factory
 
         public List<Material> listOfMaterials = new List<Material>();
         public List<Blueprints> ListOfCreatedItems = new List<Blueprints>();
-        public List<int> _listOfMaterialsAmount = new List<int>();
-            public List<int> _materialsToSendNumbers = new List<int>();
+        public static List<int> _listOfMaterialsAmount = new List<int>();
+        public List<int> _materialsToSendNumbers = new List<int>();
         public List<Material> _materialsToFactory = new List<Material>();
+        public static List<Recipes> _playerItems = new();
 
         //Constructor that creats necessary lists and items to storage
         public Storage()
@@ -36,7 +37,7 @@ namespace Oktober_7___exercice_The_magical_factory
         {
             for (int i = 0; i < Enum.GetNames(typeof(Material)).Length; i++)
             {
-                int randomNumber = new Random().Next(0, 10);
+                int randomNumber = new Random().Next(2, 10);
                 _listOfMaterialsAmount.Add(randomNumber);
                 listOfMaterials.Add((Material)i);
                 _materialsToSendNumbers.Add(0);
@@ -53,12 +54,12 @@ namespace Oktober_7___exercice_The_magical_factory
             {
                 Console.WriteLine($" {i+1} - {listOfMaterials[i],10} -Amount: {_listOfMaterialsAmount[i]}");
             }
-            if (ListOfCreatedItems.Count > 0) //added check so we dont write it if u dont actualy own any items
+            if (_playerItems.Count > 0) //added check so we dont write it if u dont actualy own any items
             {
                 Console.WriteLine("You own the folowing products:  ");
-                for (int i = 0; i < ListOfCreatedItems.Count; i++)
+                for (int i = 0; i < _playerItems.Count; i++)
                 {
-                    Console.WriteLine($" - {ListOfCreatedItems[i]}");
+                    Console.WriteLine($" - {_playerItems[i].Name}");
                 }
             }
 
@@ -155,13 +156,14 @@ namespace Oktober_7___exercice_The_magical_factory
 
 
         // Method that lets you sent materials from storage to inventory, looping until "Done"
-        public void MaterialsFromStorageToFactory()
+        public List<int> MaterialsFromStorageToFactory()
         {
             Console.WriteLine("");
             bool isDone = false;
             string sentMaterialsText = "";
             // string pickMaterial;
             MaterialsToSendToFabric = new List<Material>();
+            
             while (isDone == false)
             {
                 ShowLager();
@@ -191,14 +193,14 @@ namespace Oktober_7___exercice_The_magical_factory
                 if (char.IsDigit(UserInput.KeyChar))
                 {
                     int inputKey = int.Parse(UserInput.KeyChar.ToString());
-
+                    inputKey--;
                     if (inputKey < _listOfMaterialsAmount.Count)
                     {
 
-                    
+                        
 
                     //pickMaterial = (Console.ReadLine());
-                    if (_listOfMaterialsAmount[inputKey] > 0)
+                        if (_listOfMaterialsAmount[inputKey] > 0)
                     {
                         _listOfMaterialsAmount[inputKey] = _listOfMaterialsAmount[inputKey] - 1;
                         _materialsToSendNumbers[inputKey]++; //a int list that we update the number of items to send to factory. 
@@ -214,71 +216,23 @@ namespace Oktober_7___exercice_The_magical_factory
                 }
                 else
                 {
-                    Console.WriteLine("\n Place holder, But function to send materials on its way");
-                    Console.ReadLine();
+                    Console.Clear();
+                    
+                    isDone = true;
+                    break;
+                    
                 }
 
-
-
-                //switch (pickMaterial)
-                //{
-                //    case "Wood":
-                //        if (listOfMaterials.Contains(Material.Wood))
-                //        {
-                //            MaterialsToSendToFabric.Add(Material.Wood);
-                //            RemoveWoodFromStorage();
-                //        }
-                //        break;
-                //    case "Steel":
-                //        if (listOfMaterials.Contains(Material.Steel))
-                //        {
-                //            MaterialsToSendToFabric.Add(Material.Steel);
-                //            RemoveSteelFromStorage();
-                //        }
-                //        break;
-                //    case "Screw":
-                //        if (listOfMaterials.Contains(Material.Screw))
-                //        {
-                //            MaterialsToSendToFabric.Add(Material.Screw);
-                //            RemoveScrewFromStorage();
-                //        }
-                //        break;
-                //    case "RedPaint":
-                //        if (listOfMaterials.Contains(Material.RedPaint))
-                //        {
-                //            MaterialsToSendToFabric.Add(Material.RedPaint);
-                //            RemoveRedPaintFromStorage();
-                //        }
-                //        break;
-                //    case "Plastic":
-                //        if (listOfMaterials.Contains(Material.Plastic))
-                //        {
-                //            MaterialsToSendToFabric.Add(Material.Plastic);
-                //            RemovePlasticFromStorage();
-                //        }
-                //        break;
-                //    case "Done":
-                //        ConvertMaterialsToInt();
-                //        isDone = true;
-                //        break;
-                //    default:
-                //        Console.WriteLine("You didn't enter a valid material!");
-                //        break;
-                //}
-
-                //static void BlueprintHorse()
-                //{
-                //    Console.WriteLine("A wooden horse needs: 1 Red Paint, 2 Wood, 1 Screw - This will be prio 1");
-                //}
-                //static void BlueprintTelephone()
-                //{
-                //    Console.WriteLine("A Telephone needs: 1 Steel, 1 Wood, 3 Screw - This will be prio 2");
-                //}
-                //static void BlueprintBicycle()
-                //{
-                //    Console.WriteLine("A Bicycle needs: 3 Plastic, 1 Wood, 1 Screw - This will be prio 3");
-                //}
             }
+            List<int> list2 = new List<int>(_materialsToSendNumbers.Count);
+            foreach (int item in _materialsToSendNumbers)
+                list2.Add(item);
+            for (int i = 0; i < _materialsToSendNumbers.Count; i++)
+            {
+                _materialsToSendNumbers[i] = 0;
+            }
+           
+            return list2;
 
         }
 

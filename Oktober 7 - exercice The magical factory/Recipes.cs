@@ -37,7 +37,7 @@ namespace Oktober_7___exercice_The_magical_factory
         {
             Recipes axe = new Recipes("axe", 2, 1, 0,1,0);
             Recipes plunger = new Recipes("plunger", 1, 0, 1,1,0);
-            Recipes chopsticks = new Recipes("chopsticks", 1, 0, 0,0,0);
+            Recipes chopsticks = new Recipes("chopsticks", 2, 0, 0,0,0);
             Recipes bikecycle = new Recipes("bikecycle", 0, 3, 1,1,2);
         }
         public static void ShowListOfRecipes() // needed? Remove?

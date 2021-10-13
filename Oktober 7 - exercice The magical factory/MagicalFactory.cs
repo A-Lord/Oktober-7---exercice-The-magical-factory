@@ -15,7 +15,8 @@ namespace Oktober_7___exercice_The_magical_factory
 
         }
         public void Run()
-        { 
+        {
+            Recipes.CreateRecipes();
             while (true)
             {
 
@@ -24,18 +25,19 @@ namespace Oktober_7___exercice_The_magical_factory
 
                 myStorage.ShowLager();
                 //myFabric.ShowBlueprints();
-                myStorage.MaterialsFromStorageToFactory();
-
-                //myFabric.ShowBlueprints();
-
+                myFabric.MaterialFromUser(myStorage.MaterialsFromStorageToFactory());  //Starting materialsfromStorage that will return a int list with the materials 
+                                                                                       //the user wants to try and make items from,. we send it to materials from user funktion.
+                                                                                       //myFabric.ShowBlueprints();
                 
-                myStorage.ConvertMaterialsToInt();
+
+
+                //myStorage.ConvertMaterialsToInt();
                 //myFabric.TryWoodenHorse(myStorage);
                 //myFabric.TryTelephone(myStorage);
                 //myFabric.TryBicycle(myStorage);
-                myStorage.ConvertUnusedIntsBackToMaterials();
+                //myStorage.ConvertUnusedIntsBackToMaterials();
 
-                myStorage.ShowLager();
+                //myStorage.ShowLager();
 
 
 
