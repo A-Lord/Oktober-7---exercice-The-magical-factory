@@ -16,7 +16,7 @@ namespace Oktober_7___exercice_The_magical_factory
         public List<Material> listOfMaterials = new List<Material>();
         public List<Blueprints> ListOfCreatedItems = new List<Blueprints>();
 
-
+        //Constructor that creats necessary lists and items to storage
         public Storage()
         {
 
@@ -25,6 +25,8 @@ namespace Oktober_7___exercice_The_magical_factory
             AddList();
 
         }
+
+        //Intital materials
         public void AddList()
         {
             listOfMaterials.Add(Material.Wood);
@@ -55,7 +57,7 @@ namespace Oktober_7___exercice_The_magical_factory
         }
 
 
-
+        // Lists all the materials and finished products you have
         public void ShowLager()
         {
             Console.Clear();
@@ -95,6 +97,7 @@ namespace Oktober_7___exercice_The_magical_factory
             listOfMaterials.Remove(Material.Plastic);
         }
 
+        //Converts the list of sent materials to ints for easier production
         public void ConvertMaterialsToInt()
         {
             NumOfPlastic = 0;
@@ -128,9 +131,10 @@ namespace Oktober_7___exercice_The_magical_factory
             }
         }
 
+        //Unused materials will be converted back from ints to list-item and back to storage
         public void ConvertUnusedIntsBackToMaterials()
         {
-            //while(NumOfPlastic > 0 || NumOfRedPaint > 0 || NumOfScrew >0 || NumOfSteel >0 ||NumOfWood >0)
+            
             if (NumOfPlastic > 0)
             {
                 listOfMaterials.Add(Material.Plastic);
@@ -159,7 +163,7 @@ namespace Oktober_7___exercice_The_magical_factory
         }
 
 
-
+        // Method that lets you sent materials from storage to inventory, looping until "Done"
         public void MaterialsFromStorageToFactory()
         {
             Console.WriteLine("");

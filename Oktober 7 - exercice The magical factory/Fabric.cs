@@ -19,7 +19,7 @@ namespace Oktober_7___exercice_The_magical_factory
 
         }
         
-        
+        //Lists all the blueprints avalible through the enum "BluePrints"
         public void ShowBlueprints()
         {
             Console.WriteLine("\nIt's posible to create: \n");
@@ -30,6 +30,7 @@ namespace Oktober_7___exercice_The_magical_factory
            
         }
 
+        //Tries to create Wooden Horse and send it back to storage
         public Storage TryWoodenHorse(Storage myStorage)
         {
 
@@ -40,7 +41,7 @@ namespace Oktober_7___exercice_The_magical_factory
             }
             return myStorage;
         }
-
+        //Tries to create a telephone and send it back to storage
         public Storage TryTelephone(Storage myStorage)
         {
 
@@ -50,7 +51,7 @@ namespace Oktober_7___exercice_The_magical_factory
             }
             return myStorage;
         }
-
+        //Tries to create bicycle and send it back to storage
         public Storage TryBicycle(Storage myStorage)
         {
 
