@@ -167,7 +167,7 @@ namespace Oktober_7___exercice_The_magical_factory
                 BlueprintBicycle();
                 BlueprintTelephone();
 
-                int inputKey = (int.Parse((Convert.ToString(Console.ReadKey(true).KeyChar)))-1);
+                int inputKey = ((int.Parse(Convert.ToString(Console.ReadKey(true).KeyChar)))-1);
                 //pickMaterial = (Console.ReadLine());
                 if (_listOfMaterialsAmount[inputKey] > 0)
                 {

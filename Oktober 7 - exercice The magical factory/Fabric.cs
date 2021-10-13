@@ -31,36 +31,7 @@ namespace Oktober_7___exercice_The_magical_factory
         }
 
         //Tries to create Wooden Horse and send it back to storage
-        public Storage TryWoodenHorse(Storage myStorage)
-        {
-
-            if (myStorage.NumOfRedPaint > 0 && myStorage.NumOfWood > 1 && myStorage.NumOfScrew > 0)
-            {
-                myStorage.ListOfCreatedItems.Add(Blueprints.WoodenHorse);
-                
-            }
-            return myStorage;
-        }
-        //Tries to create a telephone and send it back to storage
-        public Storage TryTelephone(Storage myStorage)
-        {
-
-            if (myStorage.NumOfSteel > 1 && myStorage.NumOfWood > 0 && myStorage.NumOfScrew > 1)
-            {
-                myStorage.ListOfCreatedItems.Add(Blueprints.Telephone);
-            }
-            return myStorage;
-        }
-        //Tries to create bicycle and send it back to storage
-        public Storage TryBicycle(Storage myStorage)
-        {
-
-            if (myStorage.NumOfPlastic > 2 && myStorage.NumOfScrew > 1)
-            {
-                myStorage.ListOfCreatedItems.Add(Blueprints.Bicycle);
-            }
-            return myStorage;
-        }
+        //removed to change them to something else then functions.
 
  
     }

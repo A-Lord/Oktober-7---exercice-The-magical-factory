@@ -30,9 +30,9 @@ namespace Oktober_7___exercice_The_magical_factory
 
                 
                 myStorage.ConvertMaterialsToInt();
-                myFabric.TryWoodenHorse(myStorage);
-                myFabric.TryTelephone(myStorage);
-                myFabric.TryBicycle(myStorage);
+                //myFabric.TryWoodenHorse(myStorage);
+                //myFabric.TryTelephone(myStorage);
+                //myFabric.TryBicycle(myStorage);
                 myStorage.ConvertUnusedIntsBackToMaterials();
 
                 myStorage.ShowLager();
