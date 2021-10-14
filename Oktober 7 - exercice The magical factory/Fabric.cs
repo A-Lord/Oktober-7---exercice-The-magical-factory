@@ -18,7 +18,7 @@ namespace Oktober_7___exercice_The_magical_factory
         public void MaterialFromUser(List<int> inputMaterials)
         {
             _woodInFactory = inputMaterials[0];
-            _ironInFactory = inputMaterials[1];     
+            _ironInFactory = inputMaterials[1];     //behöver förbättras
             _rubberInFactory = inputMaterials[2];
             _redPaintInFactory = inputMaterials[3];
             _screwsInFactory = inputMaterials[4];
@@ -40,7 +40,6 @@ namespace Oktober_7___exercice_The_magical_factory
                     }
                 }
             }
-
 
             if (Recipes._listOfAllRecipes[indexOfTopRecipe].WoodNeeded <= _woodInFactory &&
                 Recipes._listOfAllRecipes[indexOfTopRecipe].SteelNeeded <= _ironInFactory &&

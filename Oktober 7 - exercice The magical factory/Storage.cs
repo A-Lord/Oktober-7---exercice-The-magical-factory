@@ -7,7 +7,7 @@ namespace Oktober_7___exercice_The_magical_factory
     {
 
         public List<Material> listOfMaterials = new List<Material>();
-        public static List<int> _listOfMaterialsAmount = new List<int>();
+        public static List<int> _listOfMaterialsAmount = new List<int>(); //förändra static
         public List<int> _materialsToSendNumbers = new List<int>();
         public static List<Recipes> _playerItems = new();   //in this list we will save all items that is made.
 
@@ -37,7 +37,7 @@ namespace Oktober_7___exercice_The_magical_factory
         public void ShowLager()
         {
             Console.Clear();
-            Console.WriteLine("The storage contains the folowing materials:  ");
+            Console.WriteLine("The storage contains the folowing materials:  "); 
             for (int i = 0; i < listOfMaterials.Count; i++)
             {
                 Console.WriteLine($" {i+1} - {listOfMaterials[i],10} -Amount: {_listOfMaterialsAmount[i]}");
@@ -79,11 +79,11 @@ namespace Oktober_7___exercice_The_magical_factory
                     }
                 }
 
-                Console.WriteLine("\nWhat material to you want to send in to the fabric? \n\nUse numbers to pick materials.\n\nPress anyother key to send the materials to the fabric \n ");
+                Console.WriteLine("\nWhat material to you want to send in to the fabric? \n\nUse numbers to pick materials.\n\nPress any other key to send the materials to the fabric \n ");
 
                 var UserInput = Console.ReadKey();
                 if (char.IsDigit(UserInput.KeyChar))
-                {
+                { 
                     int inputKey = int.Parse(UserInput.KeyChar.ToString());
                     inputKey--;
                     if (inputKey < _listOfMaterialsAmount.Count)
@@ -111,12 +111,13 @@ namespace Oktober_7___exercice_The_magical_factory
                     Console.Clear();
                     
                     isDone = true;
-                    break;
+                    //break;
                     
                 }
 
+
             }
-            List<int> list2 = new List<int>(_materialsToSendNumbers.Count);
+            List<int> list2 = new List<int>(_materialsToSendNumbers.Count); //change list2 to a better name
             foreach (int item in _materialsToSendNumbers)
                 list2.Add(item);
             for (int i = 0; i < _materialsToSendNumbers.Count; i++)
