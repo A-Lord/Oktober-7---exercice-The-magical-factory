@@ -37,10 +37,12 @@ namespace Oktober_7___exercice_The_magical_factory
         public void ShowLager()
         {
             Console.Clear();
-            Console.WriteLine("The storage contains the folowing materials:  "); 
+            Console.WriteLine("The storage contains the folowing materials:  ");
+            Console.WriteLine($"{"Nr.",1} {"Materials",3} {"Amount",20} ");
             for (int i = 0; i < listOfMaterials.Count; i++)
             {
-                Console.WriteLine($" {i+1} - {listOfMaterials[i],10} -Amount: {_listOfMaterialsAmount[i]}");
+                var l = listOfMaterials[i];
+                Console.WriteLine($" {i + 1}.  {l,3} {_listOfMaterialsAmount[i],22}");
             }
             if (_playerItems.Count > 0) //added check so we dont write it if u dont actualy own any items
             {
